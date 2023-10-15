@@ -63,7 +63,7 @@ window.onload = function() {
     requestAnimationFrame(update);
     setInterval(placePipes, 1500); //every 1.5 seconds
     document.addEventListener("keydown", moveBird);
-    document.addEventListener("touchstart", moveBird);
+    document.addEventListener("ontouchstart", moveBird);
 }
 
 function update() {
@@ -158,7 +158,7 @@ function moveBird(e) {
             score = 0;
             gameOver = false;
         }
-        else if (e.code === "touchstart") {
+        else if (e.code === "ontouchstart") {
         velocityY = -6;
 
         //reset game
