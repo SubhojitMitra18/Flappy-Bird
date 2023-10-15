@@ -63,6 +63,7 @@ window.onload = function() {
     requestAnimationFrame(update);
     setInterval(placePipes, 1500); //every 1.5 seconds
     document.addEventListener("keydown", moveBird);
+    document.addEventListener("touchstart", moveBird);
 }
 
 function update() {
@@ -144,7 +145,7 @@ function placePipes() {
     }
     pipeArray.push(bottomPipe);
 }
-document.addEventListener("touchstart", moveBird);
+
 function moveBird(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
         //jump
