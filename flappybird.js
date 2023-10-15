@@ -157,6 +157,23 @@ function moveBird(e) {
             score = 0;
             gameOver = false;
         }
+        else if (e.type === "touchstart") {
+        jump();
+    }
+    }
+}
+document.addEventListener("touchstart", moveBird);
+
+function jump() {
+    // Jump logic here
+    velocityY = -6;
+
+    // Reset game if it's over
+    if (gameOver) {
+        bird.y = birdY;
+        pipeArray = [];
+        score = 0;
+        gameOver = false;
     }
 }
 
@@ -166,3 +183,8 @@ function detectCollision(a, b) {
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
+
+
+
+
+
