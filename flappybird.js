@@ -144,7 +144,7 @@ function placePipes() {
     }
     pipeArray.push(bottomPipe);
 }
-
+document.addEventListener("touchstart", moveBird);
 function moveBird(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
         //jump
@@ -158,24 +158,20 @@ function moveBird(e) {
             gameOver = false;
         }
         else if (e.type === "touchstart") {
-        jump();
+        velocityY = -6;
+
+        //reset game
+        if (gameOver) {
+            bird.y = birdY;
+            pipeArray = [];
+            score = 0;
+            gameOver = false;
+        }
     }
     }
 }
-document.addEventListener("touchstart", moveBird);
 
-function jump() {
-    // Jump logic here
-    velocityY = -6;
 
-    // Reset game if it's over
-    if (gameOver) {
-        bird.y = birdY;
-        pipeArray = [];
-        score = 0;
-        gameOver = false;
-    }
-}
 
 function detectCollision(a, b) {
     return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
