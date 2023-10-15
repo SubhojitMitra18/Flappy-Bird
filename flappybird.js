@@ -158,7 +158,7 @@ function moveBird(e) {
             score = 0;
             gameOver = false;
         }
-        else if (e.type === "touchstart") {
+        else if (e.code === "touchstart") {
         velocityY = -6;
 
         //reset game
